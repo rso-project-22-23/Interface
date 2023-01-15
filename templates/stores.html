@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{%block title %}Trgovine{% endblock %}
+{% block header %}
+<script src="{{url_for('static', filename='js/ui/stores.js')}}"></script>
+{% endblock %}
+
+
+{% block above_content %}
+<div class="functions-wrapper row">
+    <div class="filters">
+        <div class="filter-name row">
+            <label>Ime:
+                <input type="text">
+            </label>
+        </div>
+    </div>
+    <button class="button-confirm-filters pointer">Potrdi filtre</button>
+    <button class="button-add-new-item pointer">Dodaj novo trgovino</button>
+</div>
+{% endblock %}

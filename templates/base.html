@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | Primerjalnik</title>
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <script src="{{url_for('static', filename='js/libraries/jquery-3.6.3.min.js')}}"></script>
+    {% block header %}{% endblock %}
+</head>
+
+<body>
+<div class="border-round">
+    <div class="main-title-row row">
+        <h1 class="main-title">Primerjalnik</h1>
+        <div class="user-menu no-select">
+            <div class="user-menu-button pointer">
+                <img src="{{url_for('static', filename='icons/user.svg')}}" alt="Uporabnik">
+            </div>
+            <div class="user-info">
+                <div class="user-account">Placeholder user account</div>
+            </div>
+
+            <div class="user-info-hider row">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation row">
+        <a class="navigation-item no-select pointer" id="items" href="/items">
+            <div>Izdelki</div>
+        </a>
+        <a class="navigation-item no-select pointer" id="stores" href="/stores">
+            <div>Trgovine</div>
+        </a>
+
+        <div class="item-lists-button pointer">
+            <img src="{{url_for('static', filename='icons/list.svg')}}" alt="Moji seznami izdelkov">
+        </div>
+        <div class="favourites-button pointer">
+            <img src="{{url_for('static', filename='icons/heart.svg')}}" alt="Priljubljeni izdelki">
+        </div>
+        <div class="basket-button pointer">
+            <img src="{{url_for('static', filename='icons/shopping_cart.svg')}}" alt="Košarica">
+        </div>
+    </div>
+</div>
+
+{% block above_content %}{% endblock %}
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>

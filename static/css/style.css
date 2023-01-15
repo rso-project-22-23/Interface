@@ -1,0 +1,250 @@
+:root {
+    /* COLORS */
+    --blue-normal: #4999FB;
+    --blue-darker: #448FEA;
+    --green-normal: #39932D;
+    --green-darker: #308427;
+    --red-light: #FF7777;
+    --red-normal: #FF0000;
+    --red-darker: #D62725;
+    --background-grey: #FAFAFA;
+    --border-grey: #DEDEDF;
+    --grey-darker: #464646;
+
+    /* FONTS */
+    --fa-regular: normal normal 400 14px/15px FontAwesome-Regular, sans-serif;
+    --fa-solid: normal normal 600 14px/15px FontAwesome-Regular, sans-serif;
+}
+
+
+html {
+    background-color: var(--background-grey);
+    overflow: hidden;
+}
+
+html > * {
+    font: var(--fa-regular);
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.no-select {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.border-round {
+    background-color: white;
+    margin: 15px 15px 30px;
+    border: 2px solid var(--border-grey);
+    border-radius: 5px;
+}
+
+.button-add-new-item {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--green-normal);
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+/* adjust main content size to exclude height and margin of .button-add-new-item button */
+.button-add-new-item ~ .main-content {
+    height: calc(100vh - 272px);
+}
+
+.button-add-new-item:hover {
+    background-color: var(--green-darker);
+}
+
+.filters {
+    margin-left: 20px;
+}
+
+.button-confirm-filters {
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--blue-normal);
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 50px;
+    padding: 5px;
+}
+
+.button-confirm-filters:hover {
+    background-color: var(--blue-darker);
+}
+
+.main-title {
+    padding: 30px 0 30px 10px;
+    margin: 0;
+    font-size: 35px;
+    overflow: hidden;
+}
+
+.user-info {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 490px;
+    height: 50px;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    margin-right: -438px;
+    transition: 0.25s;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.user-account {
+    margin-top: 13px;
+    font-size: 20px;
+}
+
+.user-info-hider {
+    margin-top: 10px;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+}
+
+.user-info-hider > div:first-child {
+    height: 50px;
+    width: 65px;
+    background-color: white;
+    border-right: 2px solid var(--border-grey);
+}
+
+.user-info-hider > div:last-child {
+    height: 50px;
+    width: 15px;
+    background-color: var(--background-grey);
+}
+
+.user-menu-button {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    margin-right: 40px;
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.user-menu-button img {
+    width: 50px;
+    height: 50px;
+}
+
+.basket-button {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.basket-button img {
+    width: 35px;
+}
+
+.favourites-button {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    margin-right: 80px;
+    margin-top: 25px;
+    width: 50px;
+    height: 50px;
+}
+
+
+.favourites-button img {
+    width: 30px;
+}
+
+.item-lists-button {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    margin-right: 130px;
+    margin-top: 25px;
+    width: 50px;
+    height: 50px;
+}
+
+
+.item-lists-button img {
+    width: 30px;
+}
+
+.user-menu-button:hover ~ .user-info,
+.user-info:hover {
+    margin-right: 82px;
+    cursor: pointer;
+}
+
+.navigation {
+    border-top: 1px solid var(--border-grey);
+    height: 55px;
+    align-items: center;
+}
+
+.navigation-item {
+    font-weight: bold;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px 0 15px;
+    font-size: 20px;
+}
+
+.navigation-item.selected {
+    background-color: var(--background-grey);
+    box-shadow: inset 0 -5px 0 0 var(--border-grey);
+}
+
+.navigation-item div {
+    margin-top: 18px;
+}
+
+.main-content {
+    background-color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    height: calc(100vh - 199px);
+    overflow-y: auto;
+    border: 2px solid var(--border-grey);
+    border-radius: 0 5px 5px 5px;
+    min-height: 70vh;
+}
+
+.connect-wrapper > .border-round {
+    text-align: center;
+}
