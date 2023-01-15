@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: interface-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: interface
+  template:
+    metadata:
+      labels:
+        app: interface
+    spec:
+      containers:
+        - image: ngregor/rso-interface:latest
+          name: interface
+          ports:
+            - containerPort: 5000
+              name: server
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: interface
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5000
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: interface

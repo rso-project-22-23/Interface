@@ -32,3 +32,10 @@ spec:
                 name: item-list-manager
                 port:
                   number: 8080
+          - path: /()(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: interface
+                port:
+                  number: 5000
