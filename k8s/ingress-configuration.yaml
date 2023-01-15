@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rso-project-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /authentication-service(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: authentication-service
+                port:
+                  number: 8080
+          - path: /entity-editor(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: entity-editor
+                port:
+                  number: 8080
+          - path: /item-list-manager(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: item-list-manager
+                port:
+                  number: 8080
