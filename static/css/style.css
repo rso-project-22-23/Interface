@@ -248,3 +248,24 @@ a {
 .connect-wrapper > .border-round {
     text-align: center;
 }
+
+#form-login {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.green-button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--green-normal);
+    padding: 8px;
+}
+
+.green-button:hover {
+    background-color: var(--green-darker);
+}
+
+.login-button {
+    margin-top: 10px;
+}

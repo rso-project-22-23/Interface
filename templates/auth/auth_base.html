@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | Primerjalnik</title>
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <script src="{{url_for('static', filename='js/libraries/jquery-3.6.3.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/libraries/jquery.cookie.js')}}"></script>
+    <script src="{{url_for('static', filename='js/ui/auth.js')}}"></script>
+    {% block header %}{% endblock %}
+</head>
+
+<body>
+<div class="border-round">
+    <div class="main-title-row row">
+        <h1 class="main-title">Primerjalnik</h1>
+    </div>
+    {% block navigation %}{% endblock %}
+</div>
+
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>

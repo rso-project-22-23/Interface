@@ -5,6 +5,7 @@
     <title>{% block title %}{% endblock %} | Primerjalnik</title>
     <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
     <script src="{{url_for('static', filename='js/libraries/jquery-3.6.3.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/libraries/jquery.cookie.js')}}"></script>
     {% block header %}{% endblock %}
 </head>
 
@@ -17,7 +18,7 @@
                 <img src="{{url_for('static', filename='icons/user.svg')}}" alt="Uporabnik">
             </div>
             <div class="user-info">
-                <div class="user-account">Placeholder user account</div>
+                <div class="user-account"></div>
             </div>
 
             <div class="user-info-hider row">
@@ -45,6 +46,8 @@
         </div>
     </div>
 </div>
+<!-- load user email from cookie -->
+<script>$(".user-account").html(JSON.parse($.cookie("auth-data"))["auth-email"]);</script>
 
 {% block above_content %}{% endblock %}
 <div class="main-content">

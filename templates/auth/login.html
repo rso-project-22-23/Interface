@@ -1,0 +1,31 @@
+{% extends "auth/auth_base.html" %}
+
+{%block title %}Prijava{% endblock %}
+
+{% block navigation %}
+    <div class="navigation row">
+        <a class="navigation-item no-select pointer selected" id="login" href="/login">
+            <div>Prijava</div>
+        </a>
+        <a class="navigation-item no-select pointer" id="register" href="/register">
+            <div>Registracija</div>
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+<form id="form-login" enctype="multipart/form-data" method="post">
+    <label>Elektronski naslov
+        <div class="row">
+            <input class="login-input user-email" name="email" type="text">
+        </div>
+    </label>
+    <label>Geslo
+        <div class="row">
+            <input class="login-input user-password" name="password" type="text">
+        </div>
+    </label>
+
+    <input type="button" class="green-button login-button" value="Prijava" />
+</form>
+{% endblock %}
