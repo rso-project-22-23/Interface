@@ -10,12 +10,24 @@
 <div class="functions-wrapper row">
     <div class="filters">
         <div class="filter-name row">
-            <label>Ime:
-                <input type="text">
+            <label>Ime vsebuje:
+                <input type="text" class="store-name-filter">
             </label>
         </div>
     </div>
-    <button class="button-confirm-filters pointer">Potrdi filtre</button>
+    <button class="button-confirm-filters button-store-filters pointer">Potrdi filtre</button>
     <button class="button-add-new-item pointer">Dodaj novo trgovino</button>
 </div>
+{% endblock %}
+
+{% block content %}
+<div class="add-new-store store-row hidden">
+    <div class="add-new-store-indicator">Dodaj novo trgovino</div>
+    <div class="row">
+        <div class="store-name-indicator add-store">Ime:</div>
+        <input type="text" class="store-name">
+        <button class="button-add-store pointer">Potrdi</button>
+    </div>
+</div>
+<div class="store-rows-container"></div>
 {% endblock %}

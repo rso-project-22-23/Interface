@@ -15,12 +15,15 @@
             </label>
         </div>
         <label>Trgovina
-            <select>
-                <option></option>
+            <select class="filter-store">
+                <option value="" selected>Vse</option>
+                {% for s in stores %}
+                    <option value="{{ s.storeName }}">{{ s.storeName }}</option>
+                {% endfor %}
             </select>
         </label>
     </div>
-    <button class="button-confirm-filters pointer">Potrdi filtre</button>
-    <button class="button-add-new-item pointer">Dodaj nov izdelek</button>
+    <button class="button-confirm-filters button-item-filters pointer">Potrdi filtre</button>
+    <a class="button-add-new-item pointer" href="/items/add-item">Dodaj nov izdelek</a>
 </div>
 {% endblock %}

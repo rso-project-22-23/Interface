@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{%block title %}Izdelek{% endblock %}
+{% block header %}
+<script src="{{url_for('static', filename='js/ui/item.js')}}"></script>
+{% endblock %}
+
+{% block path %}: Podrobnosti izdelka{% endblock %}
+
+{% block content %}
+<div class="main-wrapper">
+    <div class="details">
+        <div class="barcode row">
+            <div class="text-style-bold">Črtna koda:</div>
+            <div class="data-box">{{ item.barcode }}</div>
+        </div>
+        <div class="name row">
+            <div class="text-style-bold">Ime:</div>
+            <div class="data-box">{{ item.itemName }}</div>
+        </div>
+        <div class="prices row">
+            <div class="text-style-bold">Cene:</div>
+            <table class="prices-table">
+                <tr>
+                    <th>Trgovina</th>
+                    <th>Cena</th>
+                </tr>
+                {% for price in prices %}
+                <tr>
+                    <td>{{ price.storeName }}</td>
+                    <td>{{ price.price }} €</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <button class="button-add-price no-select pointer">Dodaj ceno</button>
+        <div class="add-price hidden">
+            <div class="store text-style-bold">
+                <label for="store-names">Izberi trgovino:</label>
+                <select name="store-names" class="store-names" id="store-names">
+                    <option value="" selected disabled>Trgovina</option>
+                    {% for s in stores %}
+                        <option value="{{ s.storeName }}">{{ s.storeName }}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+            <div class="price text-style-bold row">
+                <label>Vnesi ceno:
+                    <input class="input-price" type="number" step=".01">
+                </label>
+                <button class="button-confirm-price no-select pointer">Potrdi</button>
+            </div>
+        </div>
+        <div class="item-options">
+            <div class="add-to-list row">
+                <div class="column">
+                    <div>Dodaj izdelek na seznam: </div>
+                    <div class="text-style-bold">
+                        <select class="store-names">
+                            <option value="Izberi">Izberi...</option>
+                            <option value="Spar">Spar</option>
+                            <option value="Lidl">Lidl</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="button-confirm-list no-select pointer">Potrdi</button>
+            </div>
+            <div class="add-to-fav-basket row">
+                <a class="icon-heart" href="">
+                    <img src="{{url_for('static', filename='icons/heart_white.svg')}}" alt="Priljubljeno" title="Dodaj med priljubljene">
+                </a>
+                <a class="icon-shopping-cart" href="">
+                    <img src="{{url_for('static', filename='icons/shopping_cart_white.svg')}}" alt="Izbriši" title="Izbriši iz seznama">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

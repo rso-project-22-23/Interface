@@ -1,0 +1,37 @@
+{% extends "auth/auth_base.html" %}
+
+{%block title %}Nepotrjen račun{% endblock %}
+
+{% block header %}
+<script src="{{url_for('static', filename='js/ui/base.js')}}"></script>
+{% endblock %}
+
+{% block title_row %}
+<div class="user-menu no-select">
+    <div class="user-menu-button pointer">
+        <img src="{{url_for('static', filename='icons/user.svg')}}" alt="Uporabnik">
+    </div>
+    <div class="user-menu-dropdown no-select hidden" id="user-menu-dropdown">
+        <div class="button-logout">Odjava</div>
+    </div>
+    <div class="user-info">
+        <div class="user-account"></div>
+    </div>
+
+    <div class="user-info-hider row">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- load user email from cookie -->
+<script>$(".user-account").html(JSON.parse($.cookie("auth-data"))["auth-email"]);</script>
+{% endblock %}
+
+{% block content %}
+<div class="not-activated-message">
+    Niste še potrdili svojega računa.
+    <br>
+    <br>
+    Za potrditev računa odprite povezavo, ki ste jo prejeli na svoj elektronski naslov.
+</div>
+{% endblock %}

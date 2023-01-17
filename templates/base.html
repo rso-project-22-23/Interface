@@ -6,16 +6,20 @@
     <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
     <script src="{{url_for('static', filename='js/libraries/jquery-3.6.3.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/libraries/jquery.cookie.js')}}"></script>
+    <script src="{{url_for('static', filename='js/ui/base.js')}}"></script>
     {% block header %}{% endblock %}
 </head>
 
 <body>
 <div class="border-round">
     <div class="main-title-row row">
-        <h1 class="main-title">Primerjalnik</h1>
+        <h1 class="main-title">Primerjalnik{% block path %}{% endblock %}</h1>
         <div class="user-menu no-select">
             <div class="user-menu-button pointer">
                 <img src="{{url_for('static', filename='icons/user.svg')}}" alt="Uporabnik">
+            </div>
+            <div class="user-menu-dropdown no-select hidden" id="user-menu-dropdown">
+                <div class="button-logout">Odjava</div>
             </div>
             <div class="user-info">
                 <div class="user-account"></div>
@@ -36,13 +40,19 @@
         </a>
 
         <div class="item-lists-button pointer">
-            <img src="{{url_for('static', filename='icons/list.svg')}}" alt="Moji seznami izdelkov">
+            <a class="items-list no-select pointer" id="list" href="/my-lists">
+                <img src="{{url_for('static', filename='icons/list.svg')}}" alt="Moji seznami izdelkov">
+            </a>
         </div>
         <div class="favourites-button pointer">
-            <img src="{{url_for('static', filename='icons/heart.svg')}}" alt="Priljubljeni izdelki">
+            <a class="favourite-items no-select pointer" id="favourites" href="/favourites">
+                <img src="{{url_for('static', filename='icons/heart.svg')}}" alt="Priljubljeni izdelki">
+            </a>
         </div>
         <div class="basket-button pointer">
-            <img src="{{url_for('static', filename='icons/shopping_cart.svg')}}" alt="Košarica">
+            <a class="basket no-select pointer" id="basket" href="/basket">
+                <img src="{{url_for('static', filename='icons/shopping_cart.svg')}}" alt="Košarica">
+            </a>
         </div>
     </div>
 </div>
@@ -50,6 +60,7 @@
 <script>$(".user-account").html(JSON.parse($.cookie("auth-data"))["auth-email"]);</script>
 
 {% block above_content %}{% endblock %}
+
 <div class="main-content">
     {% block content %}{% endblock %}
 </div>

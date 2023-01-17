@@ -14,5 +14,23 @@
 {% endblock %}
 
 {% block content %}
+<form id="form-register" enctype="multipart/form-data" method="post">
+    <label>Elektronski naslov
+        <div class="row">
+            <input class="register-input user-email" name="email" type="text">
+        </div>
+    </label>
+    <label>Geslo
+        <div class="row">
+            <input class="register-input user-password" name="password" type="password">
+        </div>
+    </label>
+    <label>Ponovi Geslo
+        <div class="row">
+            <input class="register-input repeat-password" name="repeat-password" type="password">
+        </div>
+    </label>
 
+    <input type="button" class="green-button register-button" value="Registracija" />
+</form>
 {% endblock %}

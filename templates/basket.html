@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{%block title %}Košarica{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block path %}: Košarica{% endblock %}
+
+{% block above_content %}
+    <div class="comparison-wrapper row">
+        <div class="text-bigger row">Primerjaj:</div>
+        <div class="store text-style-bold row">
+            <select class="store-names">
+                <option value="trgovina-2">Trgovina 1</option>
+                <option value="spar">Spar</option>
+                <option value="lidl">Lidl</option>
+              </select>
+            <div class="sum row text-bigger">
+                <div class="text-style">Skupaj: </div>
+                <div>35,25 </div>
+                <div class="margin-5">€</div>
+            </div>
+        </div>
+        <div class="store text-style-bold row">
+            <select class="store-names">
+                <option value="trgovina-2">Trgovina 2:</option>
+                <option value="spar">Spar</option>
+                <option value="lidl">Lidl</option>
+              </select>
+            <div class="sum row text-bigger">
+                <div class="text-style">Skupaj: </div>
+                <div>40,00 </div>
+                <div class="margin-5">€</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="item-row row">
+        <div class="text-style">
+            <div class="item-row-name-indicator row">Ime:
+                <div class="text-style-bold">Izdelek</div>
+            </div>
+            <div class="comparison-barcode row">Črtna Koda:
+                <div class="text-style-bold">1234567890123</div>
+            </div>
+
+        </div>
+        <div class="price-1 row text-bigger">9,99
+            <div class="margin-5">€</div>
+        </div>
+        <div class="price-2 row text-bigger">8,49
+            <div class="margin-5">€</div>
+        </div>
+        <div class="item-row-buttons row">
+            <a class="icon-heart" href="">
+                <img src="{{url_for('static', filename='icons/heart_white.svg')}}" alt="Priljubljeno" title="Dodaj med priljubljene">
+            </a>
+            <a class="icon-delete" href="">
+                <img src="{{url_for('static', filename='icons/delete.svg')}}" alt="Izbriši" title="Izbriši iz seznama">
+            </a>
+        </div>
+    </div>
+    <div class="item-row row">
+        <div class="text-style">
+            <div class="item-row-name-indicator row">Ime:
+                <div class="text-style-bold">Izdelek</div>
+            </div>
+            <div class="comparison-barcode row">Črtna Koda:
+                <div class="text-style-bold">1234567890123</div>
+            </div>
+
+        </div>
+        <div class="price-1 row text-bigger">9,99
+            <div class="margin-5">€</div>
+        </div>
+        <div class="price-2 row text-bigger">8,49
+            <div class="margin-5">€</div>
+        </div>
+        <div class="item-row-buttons row">
+            <a class="icon-heart" href="">
+                <img src="{{url_for('static', filename='icons/heart_white.svg')}}" alt="Priljubljeno" title="Dodaj med priljubljene">
+            </a>
+            <a class="icon-delete" href="">
+                <img src="{{url_for('static', filename='icons/delete.svg')}}" alt="Izbriši" title="Izbriši iz seznama">
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

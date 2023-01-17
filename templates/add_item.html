@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{%block title %}Dodaj izdelek{% endblock %}
+{% block header %}
+<script src="{{url_for('static', filename='js/ui/add_item.js')}}"></script>
+{% endblock %}
+
+{% block path %}: Dodaj nov izdelek{% endblock %}
+
+{% block content %}
+<div class="new-item-wrapper">
+    <div class="barcode row">
+        <div class="new-item-data text-style-bold">Črtna koda:</div>
+        <label>
+            <input class="new-item-barcode" type="text">
+        </label>
+    </div>
+    <div class="name row">
+        <div class="new-item-data text-style-bold">Ime:</div>
+        <label>
+            <input class="new-item-name" type="text">
+        </label>
+    </div>
+    <div class="store row">
+        <div class="new-item-data text-style-bold">Trgovina:</div>
+        <div class="new-item-data text-style-bold">
+            <label for="store-names"></label>
+            <select name="store-names" class="new-item-store" id="store-names">
+                    <option value="" selected disabled>Trgovina</option>
+                    {% for s in stores %}
+                        <option value="{{ s.storeName }}">{{ s.storeName }}</option>
+                    {% endfor %}
+              </select>
+        </div>
+    </div>
+    <div class="price row">
+        <div class="new-item-data text-style-bold">Cena:</div>
+        <label>
+            <input class="new-item-price" type="number" step=".01">
+        </label>
+    </div>
+    <button class="button-confirm-new-item no-select pointer">Potrdi</button>
+</div>
+{% endblock %}
